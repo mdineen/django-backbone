@@ -32,11 +32,10 @@ class BackboneSite(object):
 
             urlpatterns += [
                 url(url_path_prefix + '$', view_class.as_view(), name=base_url_name),
-                url(url_path_prefix + '/(?P<id>\d+)$', view_class.as_view(),
-                    name=base_url_name + '_detail')
+                url(url_path_prefix + '/(?P<id>\d+)$', view_class.as_view(), name=base_url_name + '_detail')
             ]
         return urlpatterns
 
     @property
     def urls(self):
-        return (self.get_urls(), 'backbone', self.name)
+        return (self.get_urls(), self.name)
